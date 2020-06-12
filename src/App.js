@@ -1,28 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import CardList from './CardList.js';
+import {cats} from './cats.js';
+import SearchBox from './searchBox.js';
 import './App.css';
 
-class App extends React.Component {
+class App extends Component{
+  constructor(){
+    super();
+    this.state = {
+      cats : cats,
+      searchfield : ''
+    }
+  }
+
+  onsearchChange=(event) =>{
+    this.setState({searchfield:event.target.value})
+    console.log(event.target.value) 
+    }
   render(){
+   // The cat argument is a reference to the current element in the array as filter() checks it against the condition.    
+    const filteredCats = this.state.cats.filter((cat) =>{
+      return cat.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+    })
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className='tc'>  
+        <h1 className='f1'>Friendex</h1>
+        <SearchBox searchChange={this.onsearchChange}/>
+        <CardList cats={filteredCats} />
       </div>
     );
-  }
+  }  
 }
+
 
 export default App;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Card from './Card.js';
 
 
@@ -27,4 +27,4 @@ const CardList = ({cats}) =>{
 }
 
 
-export default CardList
+export default CardList;
