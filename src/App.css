@@ -9,6 +9,7 @@ font-style: normal;
 font-weight: normal;
 src: local('Sriracha Regular'), url('Sriracha-Regular.woff') format('woff');
 }
+
 h1 {
   font-family: 'Sriracha Regular';
   font-weight: 200;

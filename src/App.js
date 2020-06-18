@@ -30,7 +30,7 @@ class App extends Component{
       return cat.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
     })
     if (!this.state.cats.length){
-      return <h1>LOADING....</h1>
+      return <h1><strong>LOADING....</strong></h1>
     }
     else{
       return (
